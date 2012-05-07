@@ -66,9 +66,9 @@ projects[nodequeue][subdir] = contrib
 projects[metatag][subdir] = contrib
 
 ;Installer profile
-projects[tao][type] = 
-projects[tao][download][type] = git
-projects[tao][download][url] = git://github.com/mortennajbjerg/default_drupal_installer_profile.git
+projects[ilab][type] = profile
+projects[ilab][download][type] = git
+projects[ilab][download][url] =  git@github.com/mortennajbjerg/default_drupal_installer_profile.git
 
 ; Libraries
 ; --------

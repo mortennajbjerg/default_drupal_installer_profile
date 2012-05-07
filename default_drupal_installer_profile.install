@@ -3,7 +3,7 @@
 /**
  * Implements hook_install()
  */
-function minimal_install() {
+function default_drupal_installer_profile_install() {
 	
 	$full_html_format = array(
 		'format' => 'full_html',

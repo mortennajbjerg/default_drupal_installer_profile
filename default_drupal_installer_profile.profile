@@ -3,7 +3,7 @@
 /**
  * Implements hook_form_FORM_ID_alter()
  */
-function ilab_form_install_configure_form_alter(&$form, $form_state) {
+function default_drupal_installer_profile_form_install_configure_form_alter(&$form, $form_state) {
 	
 	// Pre-populate the site name with the server name.
 	$form['admin_account']['account']['name']['#default_value'] = 'admin';

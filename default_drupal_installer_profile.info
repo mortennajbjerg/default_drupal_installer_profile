@@ -1,5 +1,5 @@
-name = Ilab
-description = Default ilab profile
+name = Default Drupal Installer Profile
+description = A default Drupal Installer Profile with sensible defaults
 version = VERSION
 core = 7.x
 
