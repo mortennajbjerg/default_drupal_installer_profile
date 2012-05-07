@@ -1,0 +1,126 @@
+<?php
+
+/**
+ * Implements hook_install()
+ */
+function minimal_install() {
+	
+	$full_html_format = array(
+		'format' => 'full_html',
+		'name' => 'Full HTML',
+		'weight' => 0,
+		'filters' => array(
+			// URL filter.
+			'filter_url' => array(
+				'weight' => 0,
+				'status' => 1,
+				),
+			// Line break filter.
+			'filter_autop' => array(
+				'weight' => 1,
+				'status' => 1,
+				),
+			// HTML corrector filter.
+			'filter_htmlcorrector' => array(
+				'weight' => 10,
+				'status' => 1,
+				),
+		),
+	);
+	$full_html_format = (object) $full_html_format;
+	filter_format_save($full_html_format);
+	
+	// Insert default pre-defined node types into the database. For a complete
+	// list of available node type attributes, refer to the node type API
+	// documentation at: http://api.drupal.org/api/HEAD/function/hook_node_info.
+	$types = array(
+		array(
+			'type' => 'page',
+			'name' => st('Page'),
+			'base' => 'node_content',
+			'description' => st("Use <em>basic pages</em> for your static content, such as an 'About us' page."),
+			'custom' => 1,
+			'modified' => 1,
+			'locked' => 0,
+			)
+		);
+	
+	foreach ($types as $type) {
+		$type = node_type_set_defaults($type);
+		node_type_save($type);
+		node_add_body_field($type);
+	}
+	// Default "Basic page" to not be promoted and have comments disabled.
+	variable_set('node_options_page', array('status'));
+	variable_set('comment_page', COMMENT_NODE_HIDDEN);
+	
+	// Don't display date and author information for "Basic page" nodes by default.
+	variable_set('node_submitted_page', FALSE);
+	
+	// Create a default vocabulary named "Tags", enabled for the 'article' content type.
+	$description = st('Use tags to group articles on similar topics into categories.');
+	$help = st('Enter a comma-separated list of words to describe your content.');
+	$vocabulary = (object) array(
+		'name' => st('Tags'),
+		'description' => $description,
+		'machine_name' => 'tags',
+		'help' => $help,
+	);
+	taxonomy_vocabulary_save($vocabulary);
+	$description = st('A list of categories to categorize the main content');
+	$help = st('Enter a category for You content');
+	$vocabulary = (object) array(
+		'name' => st('Category'),
+		'description' => $description,
+		'machine_name' => 'category',
+		'help' => $help,
+	);
+	taxonomy_vocabulary_save($vocabulary);
+	
+	// Enable some standard blocks.
+	$default_theme = variable_get('theme_default', 'bartik');
+	$values = array(
+		array(
+			'module' => 'system',
+			'delta' => 'main',
+			'theme' => $default_theme,
+			'status' => 1,
+			'weight' => 0,
+			'region' => 'content',
+			'pages' => '',
+			'cache' => -1,
+		),
+		array(
+			'module' => 'system',
+			'delta' => 'help',
+			'theme' => $default_theme,
+			'status' => 1,
+			'weight' => 0,
+			'region' => 'help',
+			'pages' => '',
+			'cache' => -1,
+		),
+	);
+	$query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'cache'));
+	foreach ($values as $record) {
+		$query->values($record);
+	}
+	$query->execute();
+	
+	// Allow visitor account creation, but with administrative approval.
+	variable_set('user_register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL);
+	
+	// Enable default permissions for system roles.
+	user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content'));
+	user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content'));
+	
+	// Enable the admin theme.
+	db_update('system')
+		->fields(array('status' => 1))
+		->condition('type', 'theme')
+		->condition('name', 'seven')
+		->execute();
+	variable_set('admin_theme', 'seven');
+	variable_set('node_admin_theme', '1');
+  
+}
