@@ -3,6 +3,8 @@ description = A default Drupal Installer Profile with sensible defaults
 version = VERSION
 core = 7.x
 
+; Core modules
+; -----------------
 dependencies[] = block
 dependencies[] = dblog
 dependencies[] = contextual
@@ -21,3 +23,31 @@ dependencies[] = field_ui
 dependencies[] = file
 dependencies[] = rdf
 
+
+; Contrib modules
+; -----------------
+dependencies[] = wysiwyg
+dependencies[] = imce
+dependencies[] = imce_wywisyg
+dependencies[] = ctools
+dependencies[] = date
+dependencies[] = field_group
+dependencies[] = entityreference
+dependencies[] = filefield_sources
+dependencies[] = link
+dependencies[] = views
+dependencies[] = devel
+dependencies[] = features
+dependencies[] = strongarm
+dependencies[] = globalredirect
+dependencies[] = backup_migrate
+dependencies[] = google_analytics
+dependencies[] = menu_block
+dependencies[] = transliteration
+dependencies[] = token
+dependencies[] = entity
+dependencies[] = libraries
+dependencies[] = epsacrop
+dependencies[] = email
+dependencies[] = pathauto
+dependencies[] = node_clone

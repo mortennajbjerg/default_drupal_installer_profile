@@ -64,6 +64,8 @@ projects[node_clone][subdir] = contrib
 projects[webform][subdir] = contrib
 projects[nodequeue][subdir] = contrib
 projects[metatag][subdir] = contrib
+projects[media][subdir] = contrib
+
 
 ;Installer profile
 ;projects[default_drupal_installer_profile][type] = "profile"
