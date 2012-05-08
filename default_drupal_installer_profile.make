@@ -65,6 +65,7 @@ projects[webform][subdir] = contrib
 projects[nodequeue][subdir] = contrib
 projects[metatag][subdir] = contrib
 projects[media][subdir] = contrib
+projects[boxes][subdir] = contrib
 
 
 ;Installer profile
@@ -78,6 +79,16 @@ projects[media][subdir] = contrib
 libraries[tinymce][download][type] = "get"
 libraries[tinymce][download][url] = "http://downloads.sourceforge.net/project/tinymce/TinyMCE/3.2.7/tinymce_3_2_7.zip"
 libraries[tinymce][directory_name] = "tinymce"
+
+libraries[jcrop][download][type] = "get"
+libraries[jcrop][download][url] = "http://jcrop.googlecode.com/files/jquery.Jcrop-0.9.8.zip"
+libraries[jcrop][directory_name] = "Jcrop"
+
+libraries[json2][download][type] = "git"
+libraries[json2][download][url] = "https://github.com/douglascrockford/JSON-js.git"
+libraries[json2][directory_name] = "json2"
+
+
 
 ; Patches
 ; --------
