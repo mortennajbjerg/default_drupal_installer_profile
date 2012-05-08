@@ -71,8 +71,8 @@ projects[boxes][subdir] = contrib
 ;Installer profile
 ;projects[default_drupal_installer_profile][type] = "profile"
 ;projects[default_drupal_installer_profile][download][type] = "git"
-;projects[default_drupal_installer_profile][download][url] =  "git@github.com:mortennajbjerg/default_drupal_installer_profile.git"
-;projects[default_drupal_installer_profile][download][branch] = "master"
+;projects[default_drupal_installer_profile][download][url] =  "https://github.com/mortennajbjerg/default_drupal_installer_profile.git"
+
 
 ; Libraries
 ; --------
