@@ -36,6 +36,7 @@ dependencies[] = entityreference
 dependencies[] = filefield_sources
 dependencies[] = link
 dependencies[] = views
+dependencies[] = views_ui
 dependencies[] = devel
 dependencies[] = features
 dependencies[] = strongarm
