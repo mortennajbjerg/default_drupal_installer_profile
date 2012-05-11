@@ -26,6 +26,7 @@ dependencies[] = rdf
 
 ; Contrib modules
 ; -----------------
+dependencies[] = spamspan
 dependencies[] = wysiwyg
 dependencies[] = imce
 dependencies[] = imce_wysiwyg

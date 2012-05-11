@@ -50,6 +50,7 @@ projects[module_filter][subdir] = contrib
 projects[date][subdir] = contrib
 projects[epsacrop][subdir] = contrib
 projects[email][subdir] = contrib
+projects[spamspan][subdir] = contrib
 projects[field_group][subdir] = contrib
 projects[link][subdir] = contrib
 projects[pathauto][subdir] = contrib
