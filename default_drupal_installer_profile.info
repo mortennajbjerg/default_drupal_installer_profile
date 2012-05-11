@@ -47,6 +47,7 @@ dependencies[] = menu_block
 dependencies[] = transliteration
 dependencies[] = token
 dependencies[] = entity
+dependencies[] = entitycache
 dependencies[] = libraries
 dependencies[] = epsacrop
 dependencies[] = email

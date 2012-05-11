@@ -42,6 +42,7 @@ projects[token][subdir] = contrib
 projects[better_formats][subdir] = contrib
 projects[better_exposed_filters][subdir] = contrib
 projects[entity][subdir] = contrib
+projects[entitycache][subdir] = contrib
 projects[libraries][subdir] = contrib
 projects[module_filter][subdir] = contrib
 
